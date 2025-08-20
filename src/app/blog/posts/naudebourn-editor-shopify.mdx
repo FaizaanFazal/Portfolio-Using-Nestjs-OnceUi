@@ -1,0 +1,55 @@
+---
+title: "Building NaudeBourn.com with Next.js and Shopify"
+publishedAt: "2025-05-05"
+summary: "Behind the scenes of developing a luxury jewelry storefront with Shopify APIs and Editor.js blog integration."
+tag: "Case Study"
+image: "/images/projects/naudebourn/blogH.png"
+---
+
+Launching **NaudeBourn.com** was all about combining **brand aesthetics** with **technical scalability**.  
+
+## Why Next.js + Shopify
+
+Next.js enabled server-side rendering for SEO, while Shopify Storefront API gave us secure, production-grade e-commerce workflows.
+
+## Blog with Editor.js
+
+NaudeBourn features an integrated blog powered by **Editor.js**. This allows the marketing team to:  
+- Write rich-text posts with media blocks.  
+- Publish instantly without developer intervention.  
+- Improve organic traffic via content marketing.
+
+## Code Example
+
+<CodeBlock
+    marginBottom="16"
+    codes={[
+      {
+        code:
+`import { createStorefrontClient } from "@shopify/storefront-client";
+
+const client = createStorefrontClient({
+  storeDomain: "naude-bourn.myshopify.com",
+  publicAccessToken: process.env.SHOPIFY_PUBLIC_TOKEN,
+});
+
+export async function getProducts() {
+  return client.request(\`
+    {
+      products(first: 5) {
+        edges { node { id title handle } }
+      }
+    }
+  \`);
+}`,
+        language: "tsx",
+        label: "Shopify API Integration"
+      }
+    ]}
+/>
+
+## Takeaways
+
+- Shopify APIs provide secure, scalable commerce features.  
+- Next.js ensures SEO + performance for storefronts.  
+- Editor.js empowers non-developers to manage content.  

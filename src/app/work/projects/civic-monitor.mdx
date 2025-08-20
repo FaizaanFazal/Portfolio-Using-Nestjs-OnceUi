@@ -1,0 +1,30 @@
+---
+title: "Civic Monitor Services – Data Scraping Platform"
+summary: "Built parallel scraping pipelines with performance optimizations, DB pooling strategies, and memory management."
+publishedAt: "2025-05-10"
+tag: "Backend Engineering"
+images:
+  - "/images/projects/civic/auth.PNG"
+team:
+  - name: "Faizaan Fazal"
+    role: "Software Team Lead"
+    avatar: "/images/avatar.jpg"
+---
+
+## Overview
+
+Civic Monitor Services is a **data scraping and monitoring system** that collects and processes large volumes of data in real-time.  
+The challenge was to ensure efficiency under heavy workloads (~2GB Node.js runtime) while preventing database pool overload.
+
+## Features
+
+- **Parallel scraping pipelines** with controlled concurrency.  
+- **DB performance optimizations** using pooling strategies and indexing.  
+- **Mutex locks** to avoid race conditions and manage high-frequency inserts.  
+- **Memory-safe Node.js runtime** capped under 2GB to prevent crashes.  
+
+## Lessons Learned
+
+- Managing **memory limits in Node.js** is critical at scale.  
+- Mutex-based queueing significantly improved stability.  
+- Optimized DB pool handling reduced connection timeouts by ~40%.  
