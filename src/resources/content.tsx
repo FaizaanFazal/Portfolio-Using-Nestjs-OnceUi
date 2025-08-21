@@ -62,7 +62,7 @@ const home: Home = {
         Recent project: <strong className="ml-4">Once UI</strong>
       </>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/naudebourn",
   },
   subline: (
     <>
@@ -208,7 +208,7 @@ const gallery: Gallery = {
   // These are placeholder images, replace with your own
   images: [
     {
-      src: "/images/projects/naudebourn/blogH.png",
+      src: "/images/projects/naudebourn/blogH.PNG",
       alt: "image",
       orientation: "horizontal",
     },
