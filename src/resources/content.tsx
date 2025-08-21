@@ -59,7 +59,7 @@ const home: Home = {
     display: true,
     title: (
       <>
-        Recent project: <strong className="ml-4">Once UI</strong>
+        Recent project: <strong className="ml-4">Naudebourn</strong>
       </>
     ),
     href: "/work/naudebourn",
