@@ -1,99 +1,71 @@
-# Magic Portfolio
+# Faizaan Fazal Khan — Portfolio
 
-Magic Portfolio is a simple, clean, beginner-friendly portfolio template. It supports an MDX-based content system for projects and blog posts, an about / CV page and a gallery.
+A dual-profile portfolio: **Research** (AI for biomedical imaging — MRI/PET, Alzheimer's prediction) and **Development** (full-stack web engineering). Visitors pick a side at `/` and get a tailored home, about, and work section for each — including an interactive 3D brain model with a real-time particle field that reacts to the cursor.
 
-View the demo [here](https://demo.magic-portfolio.com).
+![Portfolio screenshot](public/images/ss.png)
 
-![Magic Portfolio](public/images/og/home.jpg)
+## Stack
+
+- **Next.js 15** (App Router) + **React 19** + **TypeScript**
+- [**Once UI**](https://once-ui.com) for the design system
+- **three.js** / **@react-three/fiber** for the interactive 3D brain (drag-to-rotate, hover-sway, cursor-dispersing WebGL particles)
+- **MDX** (via `next-mdx-remote/rsc`) for blog posts, project case studies, and research publications
+- **KaTeX** for math rendering in publications
 
 ## Getting started
 
 **1. Clone the repository**
 ```
-git clone https://github.com/once-ui-system/magic-portfolio.git
+git clone https://github.com/FaizaanFazal/Portfolio-Using-Nestjs-OnceUi.git
 ```
 
-**2. Install dependencies**
+**2. Install dependencies** (Node.js 18.18+, 20+ recommended)
 ```
 npm install
 ```
 
-**3. Run dev server**
+**3. Run the dev server**
 ```
 npm run dev
 ```
 
-**4. Edit config**
-```
-src/resources/once-ui.config.js
-```
+**4. Edit content**
 
-**5. Edit content**
+Almost all site text lives in structured JSON, not code — edit and reload, no component changes needed:
 ```
-src/resources/content.js
-```
-
-**6. Create blog posts / projects**
-```
-Add a new .mdx file to src/app/blog/posts or src/app/work/projects
+src/content/data/nav.json              # header nav order/icons
+src/content/data/footer.json           # footer copyright/attribution
+src/content/data/shared/*.json         # person, social links, newsletter, blog meta
+src/content/data/dev/*.json            # dev profile: home, about, work, gallery
+src/content/data/research/*.json       # research profile: home, about, publications, cv, contact, work
 ```
 
-Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
+**5. Edit site config**
+```
+src/resources/once-ui.config.ts        # routes, theme, SEO baseURL, social/schema links
+```
 
-## Documentation
+**6. Add blog posts / projects / publications**
+```
+src/app/blog/posts/*.mdx               # blog posts
+src/app/work/projects/*.mdx            # dev case studies (/dev/work)
+src/content/publications/*.mdx         # research papers (/research/publications, /research/work)
+```
 
-Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
+## CV
 
-## Research CV
-
-`public/files/Faizaan_Khan_CV_2026.pdf` is a printed snapshot of `/research/cv`.
-The two are not linked at build time — if you edit `src/app/research/cv/page.tsx`
-or the data in `src/resources/content.research.tsx`, regenerate the PDF from the
-rendered page (e.g. Chrome headless `--print-to-pdf`) so the download matches
-the web version.
+The "Download PDF" button on `/research/cv` links directly to `public/assets/cv/Faizaan_Khan_CV_2026.pdf`. Replace that file to update the downloadable CV — the on-page CV content (`src/content/data/research/cv.json`, `src/content/data/research/about.json`) is edited independently.
 
 ## Features
 
-### Once UI
-- All tokens, components & features of [Once UI](https://once-ui.com)
+- **Dual-profile gate** at `/` — a full-screen chooser between Research and Development, remembering the last choice
+- **Interactive 3D brain** — GLB model rendered client-side, click-drag to rotate, sways toward the cursor on hover, with a WebGL particle field that disperses away from the pointer
+- **JSON-driven content** — nav, footer, and every page's copy load from `src/content/data/`, so updates don't touch component code
+- **MDX content** — publications, case studies, and blog posts, with KaTeX math and syntax-highlighted code
+- **SEO** — sitemap, robots.txt, per-page OG image generation, and JSON-LD schema
+- **Dark-mode-by-default** theming with a WCAG AA-checked color system
+- **Responsive** across desktop, tablet, and mobile
 
-### SEO
-- Automatic open-graph and X image generation with next/og
-- Automatic schema and metadata generation based on the content file
+## Built with
 
-### Design
-- Responsive layout optimized for all screen sizes
-- Timeless design without heavy animations and motion
-- Endless customization options through [data attributes](https://once-ui.com/docs/theming)
-
-### Content
-- Render sections conditionally based on the content file
-- Enable or disable pages for blog, work, gallery and about / CV
-- Generate and display social links automatically
-- Set up password protection for URLs
-
-### Localization
-- A localized, earlier version of Magic Portfolio is available with the next-intl library
-- To use localization, switch to the 'i18n' branch
-
-## Creators
-
-Lorant One: [Threads](https://www.threads.net/@lorant.one) / [LinkedIn](https://www.linkedin.com/in/lorant-one/)
-
-## Get involved
-
-- Join the Design Engineers Club on [Discord](https://discord.com/invite/5EyAQ4eNdS) and share your project with us!
-- Deployed your docs? Share it on the [Once UI Hub](https://once-ui.com/hub) too! We feature our favorite apps on our landing page.
-
-## License
-
-Distributed under the CC BY-NC 4.0 License.
-- Attribution is required.
-- Commercial usage is not allowed.
-- You can extend the license to [Dopler CC](https://dopler.app/license) by purchasing a [Once UI Pro](https://once-ui.com/pricing) license.
-
-See `LICENSE.txt` for more information.
-
-## Deploy with Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&project-name=portfolio&repository-name=portfolio&redirect-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&demo-title=Magic%20Portfolio&demo-description=Showcase%20your%20designers%20or%20developer%20portfolio&demo-url=https%3A%2F%2Fdemo.magic-portfolio.com&demo-image=%2F%2Fraw.githubusercontent.com%2Fonce-ui-system%2Fmagic-portfolio%2Fmain%2Fpublic%2Fimages%2Fog%2Fhome.jpg)
+This project is built on the [Once UI](https://once-ui.com) **Magic Portfolio** template, licensed under [CC BY-NC 4.0](LICENSE) — attribution required, non-commercial use only. See `LICENSE` for the full terms.
