@@ -4,6 +4,7 @@ import '@/resources/tokens.css'
 import '@/resources/custom.css'
 
 import classNames from "classnames";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Background, Column, Flex, Meta, Opacity, SpacingToken } from "@once-ui-system/core";
 import { Providers, PersonSchema, ProfileSync, SiteChrome } from '@/components';
@@ -159,6 +160,7 @@ export default async function RootLayout({
             }}
           />
           <SiteChrome>{children}</SiteChrome>
+          <SpeedInsights />
           </Column>
         </Providers>
       </Flex>
