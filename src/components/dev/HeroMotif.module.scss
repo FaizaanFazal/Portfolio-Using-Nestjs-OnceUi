@@ -1,0 +1,36 @@
+.motif {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.grid {
+  position: absolute;
+  inset: -20% -10%;
+  background-image:
+    linear-gradient(var(--label-caudate) 1px, transparent 1px),
+    linear-gradient(90deg, var(--label-caudate) 1px, transparent 1px);
+  background-size: 64px 64px;
+  // Was 0.06 — mathematically present but invisible against the dark page,
+  // which is why the dev side read as having no graphic at all.
+  opacity: 0.2;
+  animation: drift 40s linear infinite;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-64px, -64px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid {
+    animation: none;
+  }
+}

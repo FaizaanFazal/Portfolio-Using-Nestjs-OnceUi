@@ -37,9 +37,9 @@ export type Newsletter = {
   /** Whether to display the newsletter section */
   display: boolean;
   /** Title of the newsletter   */
-  title: React.ReactNode;
+  title: string;
   /** Description of the newsletter */
-  description: React.ReactNode;
+  description: string;
 };
 
 /**
@@ -78,6 +78,8 @@ export interface BasePageConfig {
   description: string;
   /** OG Image should be put inside `public/images` folder */
   image?: `/images/${string}` | string;
+  /** Icon used when this page appears in the header nav (nav.json references pages by key) */
+  icon?: IconName;
 }
 
 /**
@@ -90,15 +92,24 @@ export interface Home extends BasePageConfig {
    */
   image: `/images/${string}` | string;
   /** The headline of the home page */
-  headline: React.ReactNode;
+  headline: string;
   /** Featured badge, which appears above the headline */
   featured: {
     display: boolean;
-    title: React.ReactNode;
+    title: string;
     href: string;
   };
   /** The sub text which appears below the headline */
   subline: React.ReactNode;
+  /** Short "how I work" block — concrete, no bullet-list padding (plan.md §6) */
+  howIWork: {
+    display: boolean;
+    title: string;
+    items: Array<{
+      title: string;
+      description: string;
+    }>;
+  };
 }
 
 /**
@@ -132,7 +143,7 @@ export interface About extends BasePageConfig {
     /** Title of the introduction section */
     title: string;
     /** Description of the introduction section */
-    description: React.ReactNode;
+    description: string;
   };
   /** Work experience section */
   work: {
@@ -149,7 +160,7 @@ export interface About extends BasePageConfig {
       /** Role or job title */
       role: string;
       /** Achievements at the company */
-      achievements: React.ReactNode[];
+      achievements: string[];
       /** Images related to the experience */
       images?: Array<{
         /** Image source path */
@@ -174,7 +185,7 @@ export interface About extends BasePageConfig {
       /** Institution name */
       name: string;
       /** Description of studies */
-      description: React.ReactNode;
+      description: string;
     }>;
   };
   /** Technical skills section */
@@ -188,7 +199,7 @@ export interface About extends BasePageConfig {
       /** Skill title */
       title: string;
       /** Skill description */
-      description: React.ReactNode;
+      description: string;
       /** Images related to the skill */
       images?: Array<{
         /** Image source path */
@@ -202,6 +213,119 @@ export interface About extends BasePageConfig {
       }>;
     }>;
   };
+}
+
+/**
+ * Topic color code for publications — dot color, filter chips, everywhere
+ * else the code should run once introduced (plan.md §5.3).
+ */
+export type PublicationTopic =
+  | "segmentation"
+  | "survival"
+  | "genetics"
+  | "explainability"
+  | "classification"
+  | "benchmarking";
+
+/**
+ * Publication status — grouping for the publications list (plan.md §5.2).
+ */
+export type PublicationStatus =
+  | "published-international"
+  | "published-domestic"
+  | "under-review";
+
+/**
+ * A conference presentation — not a full MDX entry, just a line item
+ * (plan.md §5.2 "Conferences, first author").
+ */
+export type ConferencePresentation = {
+  name: string;
+  year: number;
+  note?: string;
+};
+
+/**
+ * Research-profile home page configuration (plan.md §5.1).
+ */
+export interface ResearchHome extends BasePageConfig {
+  /** One-line positioning statement — capability + domain + credibility claim */
+  positioningStatement: string;
+  /** Evidence strip — four real, verbatim figures */
+  evidence: Array<{
+    figure: string;
+    label: string;
+  }>;
+  /** Selected work — publication slugs to feature as cards, in order */
+  selectedWork: string[];
+  /** ~150 word research statement, not a bio — a position */
+  researchStatement: string;
+}
+
+/**
+ * Research-profile about page configuration (plan.md §5.5).
+ */
+export interface ResearchAbout extends BasePageConfig {
+  bio: string;
+  education: Array<{
+    institution: string;
+    location: string;
+    degree: string;
+    timeframe: string;
+    detail?: string;
+  }>;
+  position: {
+    title: string;
+    institution: string;
+    department: string;
+    timeframe: string;
+  };
+  award: {
+    title: string;
+    institution: string;
+    year: string;
+  };
+  skills: {
+    title: string;
+    items: string[];
+  };
+  languages: Array<{
+    name: string;
+    level: string;
+  }>;
+}
+
+/**
+ * Research-profile publications page configuration (plan.md §5.2).
+ */
+export interface ResearchPublications extends BasePageConfig {
+  heading: string;
+}
+
+/**
+ * Research-profile CV page configuration (plan.md §5.6).
+ */
+export interface ResearchCV extends BasePageConfig {
+  pdfHref: string;
+}
+
+/**
+ * Research-profile contact page configuration.
+ */
+export interface ResearchContact extends BasePageConfig {
+  heading: string;
+  body: string;
+}
+
+/**
+ * Research-profile paper case studies index (/research/work), mirroring
+ * the dev profile's Work config (plan.md §5.4).
+ */
+export interface ResearchWork extends BasePageConfig {
+  heading: string;
+  /** Intro paragraph; `{{publicationsLink}}` is replaced with a link built from `publicationsLinkText` */
+  introTemplate: string;
+  publicationsLinkText: string;
 }
 
 /**

@@ -1,0 +1,9 @@
+{
+  "path": "/research/work",
+  "label": "Work",
+  "title": "Case studies — Faizaan Fazal Khan",
+  "description": "Paper case studies: the question, the method, the result, and what it means.",
+  "heading": "Case studies",
+  "introTemplate": "The question, the method, the result, and what it means — for each paper. The {{publicationsLink}} has every paper, including the ones without a write-up yet.",
+  "publicationsLinkText": "full publications list"
+}

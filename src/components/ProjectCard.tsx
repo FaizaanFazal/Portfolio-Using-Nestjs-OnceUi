@@ -17,6 +17,7 @@ interface ProjectCardProps {
   title: string;
   content: string;
   description: string;
+  result?: string;
   avatars: { src: string }[];
   link: string;
 }
@@ -27,6 +28,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   content,
   description,
+  result,
   avatars,
   link,
 }) => {
@@ -40,7 +42,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         }))}
       />
       <Flex
-        mobileDirection="column"
+        s={{ direction: "column" }}
         fillWidth
         paddingX="s"
         paddingTop="12"
@@ -60,6 +62,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             {description?.trim() && (
               <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
                 {description}
+              </Text>
+            )}
+            {result?.trim() && (
+              <Text wrap="balance" variant="label-strong-s" onBackground="accent-strong">
+                {result}
               </Text>
             )}
             <Flex gap="24" wrap>

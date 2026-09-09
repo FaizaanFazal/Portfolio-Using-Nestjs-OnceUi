@@ -1,0 +1,41 @@
+---
+title: "Conformal Survival Prediction from MCI to AD Using Missingness and Severity Calibration"
+authors: "Khan, Kwon"
+venue: "IEEE Journal of Biomedical and Health Informatics (JBHI)"
+year: 2026
+status: "under-review"
+topic: "survival"
+metric: "0.805 C-index (n=1,115)"
+finding: "Conformal prediction gives calibrated uncertainty intervals on time-to-conversion from MCI to AD, explicitly accounting for missing follow-up data and symptom severity — not just a point estimate."
+bibtex: |
+  @unpublished{khan2026conformal,
+    author = {Khan, Faizaan Fazal and Kwon},
+    title  = {Conformal Survival Prediction from MCI to AD Using Missingness and Severity Calibration},
+    note   = {Under review, IEEE Journal of Biomedical and Health Informatics},
+    year   = {2026}
+  }
+---
+
+## The question
+
+A clinician wants more than a single predicted date of conversion from MCI to Alzheimer's — they want an honest uncertainty range, and one that doesn't quietly assume follow-up data is complete.
+
+## What I did
+
+Applied conformal prediction to MCI-to-AD survival modeling, calibrating explicitly for two things standard survival models ignore: missingness in follow-up visits, and baseline symptom severity.
+
+## Result
+
+<MetricCallout
+  value="0.805"
+  ci="C-index, n=1,115"
+  label="MCI-to-AD conversion"
+  interpretation="Prediction intervals maintain their stated coverage even under realistic missing-data patterns."
+  caveat="Manuscript is currently under review — treat as a reported result pending peer review, not yet a settled one."
+/>
+
+## What it means
+
+Uncertainty-aware prediction is what makes a survival model usable in a clinical conversation — a range a clinician can act on, with a stated confidence, rather than a number presented as certain when it isn't.
+
+*This manuscript is currently under review.*

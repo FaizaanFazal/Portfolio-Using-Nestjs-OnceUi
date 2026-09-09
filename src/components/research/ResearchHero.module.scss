@@ -1,0 +1,73 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--radius-l, 1rem);
+
+  @media (max-width: 768px) {
+    min-height: 60vh;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 52vh;
+  }
+}
+
+// Flat fallback behind BrainBackdrop — visible before the WebGL canvas
+// fades in, and for the no-WebGL/reduced-motion case where it never does.
+.poster {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--surface-dark);
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    var(--surface-dark) 0%,
+    rgba(7, 10, 18, 0.85) 35%,
+    rgba(7, 10, 18, 0.35) 65%,
+    rgba(7, 10, 18, 0.1) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+  max-width: 42rem;
+  padding: 3rem;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: var(--text-ui);
+  color: var(--ink-on-dark-secondary);
+  margin-bottom: 1rem;
+}
+
+.statement {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ink-on-dark-primary);
+}
+
+.social {
+  margin-top: 1.5rem;
+  pointer-events: auto;
+}

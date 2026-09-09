@@ -1,0 +1,34 @@
+---
+title: "Multi-Scale 3D CNN with Imbalance-Aware Training for Structural MRI-Based Six-Class Alzheimer Disease Staging"
+authors: "Khan, Kwon"
+venue: "Computers in Biology and Medicine"
+year: 2026
+status: "under-review"
+topic: "classification"
+finding: "Staging Alzheimer's across six disease-severity classes — not just binary AD/healthy — with a multi-scale 3D CNN trained explicitly to handle the resulting class imbalance."
+bibtex: |
+  @unpublished{khan2026multiscale,
+    author = {Khan, Faizaan Fazal and Kwon},
+    title  = {Multi-Scale 3D CNN with Imbalance-Aware Training for Structural MRI-Based Six-Class Alzheimer Disease Staging},
+    note   = {Under review, Computers in Biology and Medicine},
+    year   = {2026}
+  }
+---
+
+## The question
+
+Most AD classifiers collapse the disease into a binary label. Can a single model stage patients across six clinically meaningful severity levels from structural MRI alone?
+
+## What I did
+
+Built a multi-scale 3D CNN that processes MRI volumes at multiple resolutions simultaneously, trained with imbalance-aware losses to handle the fact that middle disease stages are far less represented than the endpoints.
+
+## Result
+
+Six-class staging directly from structural MRI, evaluated with metrics that don't reward the model for defaulting to the majority classes.
+
+## What it means
+
+Finer-grained staging is what a longitudinal care plan actually needs — knowing roughly where on the AD spectrum a patient sits changes what follow-up looks like, not just whether they have the disease.
+
+*This manuscript is currently under review.*

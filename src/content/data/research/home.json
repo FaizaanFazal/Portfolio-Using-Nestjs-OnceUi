@@ -1,0 +1,19 @@
+{
+  "path": "/research",
+  "label": "Research",
+  "title": "Faizaan Fazal Khan — AI for biomedical imaging",
+  "description": "I build deep-learning models that predict Alzheimer's progression from MRI and PET, and publish the parts that hold up under external validation.",
+  "positioningStatement": "I build deep-learning models that predict Alzheimer's progression from MRI and PET scans.",
+  "evidence": [
+    { "figure": "7", "label": "peer-reviewed journal articles" },
+    { "figure": "5", "label": "conference presentations: KNGC, ICNGC, ICICPE, ICSEC" },
+    { "figure": "Award", "label": "Chosun University, 2026: Top Research Activities" },
+    { "figure": "4.38/4.5", "label": "M.S. GPA, Chosun University" }
+  ],
+  "selectedWork": [
+    "resource-efficient-3d-unet",
+    "apoe-survival-analysis",
+    "conformal-survival-prediction"
+  ],
+  "researchStatement": "Alzheimer's research produces plenty of models that report strong accuracy on one dataset and say nothing about whether they'd survive contact with a different scanner, cohort, or clinician. I care about the gap between a model that looks good in a paper and one a clinician could actually act on — which means reporting uncertainty alongside predictions, testing preprocessing choices instead of assuming them, and treating explainability as a requirement, not a figure for the appendix. My work so far has moved through hippocampal segmentation, genetic and structural biomarkers, and survival modeling of MCI-to-AD conversion, each step aimed at models whose outputs come with an honest confidence attached. What I want to do next is push conformal, uncertainty-aware prediction further into the pipeline — from a single risk score toward calibrated intervals a clinician can actually weigh."
+}

@@ -1,0 +1,82 @@
+{
+  "path": "/dev/about",
+  "label": "About",
+  "icon": "person",
+  "title": "About – Faizaan Fazal",
+  "description": "Meet Faizaan Fazal, Full Stack Web Developer from South Korea (originally Pakistan)",
+  "tableOfContent": { "display": true, "subItems": false },
+  "avatar": { "display": true },
+  "calendar": { "display": false, "link": "https://cal.com" },
+  "intro": {
+    "display": true,
+    "title": "Introduction",
+    "description": "Faizaan is a remote-based Full Stack Web Developer with experience in building scalable, user-friendly web applications. He specializes in React.js, Next.js, Node.js, and MongoDB/PostgreSQL, and has worked on e-commerce, SaaS, and service websites. With a research background in 3D medical imaging, he combines technical depth with practical product delivery."
+  },
+  "work": {
+    "display": true,
+    "title": "Work Experience",
+    "experiences": [
+      {
+        "company": "Jazba Innovations",
+        "timeframe": "2023 – Present",
+        "role": "Software Team Lead (Remote)",
+        "achievements": [
+          "Built a full-stack internal management system using Next.js, Node.js, and MongoDB/PostgreSQL.",
+          "Implemented SEO and analytics integrations (Google Tag Manager, metadata, sitemaps).",
+          "Delivered scalable pipelines for automated data scraping with 5–10× faster ingestion."
+        ],
+        "images": []
+      },
+      {
+        "company": "NCLS&C, NUST",
+        "timeframe": "2023 – 2024",
+        "role": "Lecturer",
+        "achievements": [
+          "Delivered lectures on computer science fundamentals and software engineering concepts.",
+          "Mentored students in coding best practices and modern web technologies."
+        ],
+        "images": []
+      }
+    ]
+  },
+  "studies": {
+    "display": true,
+    "title": "Studies",
+    "institutions": [
+      {
+        "name": "Chosun University, South Korea",
+        "description": "M.S. in Information & Communication Engineering (AI for biomedical imaging), Mar 2023 – Feb 2026"
+      },
+      {
+        "name": "Air University Islamabad, Pakistan",
+        "description": "B.S. in Computer Science, Sep 2019 – Jun 2023"
+      }
+    ]
+  },
+  "technical": {
+    "display": true,
+    "title": "Technical skills",
+    "skills": [
+      {
+        "title": "Frontend Development",
+        "description": "Advanced in React.js, Next.js, TypeScript, Tailwind CSS, and Material UI. Experienced with responsive design and accessibility.",
+        "images": []
+      },
+      {
+        "title": "Backend & Databases",
+        "description": "Skilled in Node.js, Express.js, Prisma, MongoDB, PostgreSQL. Experience with REST APIs, GraphQL, and WebSockets.",
+        "images": []
+      },
+      {
+        "title": "E-Commerce Platforms",
+        "description": "Integrated Shopify APIs with secure authentication, payment flows, and SEO optimization.",
+        "images": []
+      },
+      {
+        "title": "Testing & Deployment",
+        "description": "Proficient in Jest, React Testing Library, GitHub CI/CD, Docker, and deployment via Vercel/Netlify.",
+        "images": []
+      }
+    ]
+  }
+}

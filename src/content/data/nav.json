@@ -1,0 +1,18 @@
+{
+  "home": { "icon": "home" },
+  "profileLabels": {
+    "research": "Research",
+    "dev": "Development"
+  },
+  "dev": [
+    { "key": "about", "matchMode": "exact" },
+    { "key": "work", "matchMode": "startsWith" },
+    { "key": "blog", "matchMode": "startsWith" },
+    { "key": "gallery", "matchMode": "startsWith" }
+  ],
+  "research": [
+    { "key": "researchAbout", "matchMode": "exact" },
+    { "key": "researchPublications", "matchMode": "startsWith" },
+    { "key": "researchCV", "matchMode": "exact" }
+  ]
+}

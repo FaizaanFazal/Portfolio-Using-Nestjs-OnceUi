@@ -1,0 +1,51 @@
+---
+title: "A Resource-Efficient 3D U-Net for Hippocampus Segmentation Using CLAHE and SCE-3DWT"
+authors: "Khan, Kim, Park, Kim, Kwon"
+venue: "IEEE Access"
+year: 2025
+impactFactor: 3.4
+doi: "10.1109/ACCESS.2025.3577266"
+status: "published-international"
+topic: "segmentation"
+metric: "93.2% Dice"
+finding: "A lighter 3D U-Net, helped by CLAHE contrast enhancement and a custom wavelet-transform preprocessing step, segments the hippocampus accurately without the usual compute cost of full 3D models."
+bibtex: |
+  @article{khan2025resourceefficient,
+    author  = {Khan, Faizaan Fazal and Kim and Park and Kim and Kwon},
+    title   = {A Resource-Efficient 3D U-Net for Hippocampus Segmentation Using CLAHE and SCE-3DWT},
+    journal = {IEEE Access},
+    year    = {2025},
+    doi     = {10.1109/ACCESS.2025.3577266}
+  }
+---
+
+## The question
+
+Can a 3D U-Net segment the hippocampus from MRI as accurately as heavier architectures, without their memory and compute footprint?
+
+## What I did
+
+Built a 3D U-Net with two preprocessing additions: CLAHE (contrast-limited adaptive histogram equalization) to normalize MRI contrast, and SCE-3DWT, a custom 3D wavelet-transform-based preprocessing step, to reduce input dimensionality before the network ever sees the volume. Segmentation quality is scored with the Dice coefficient, which measures the overlap between the predicted mask $X$ and the ground-truth mask $Y$:
+
+$$DSC = \frac{2|X \cap Y|}{|X| + |Y|}$$
+
+<CompareSlider
+  beforeSrc="/images/research/case-studies/segmentation-before.webp"
+  afterSrc="/images/research/case-studies/segmentation-after.webp"
+  beforeLabel="Input"
+  afterLabel="Prediction"
+  caption="Illustrative placeholder — swap in a real input slice and predicted mask export from the model."
+/>
+
+## Result
+
+<MetricCallout
+  value="93.2%"
+  label="Dice coefficient, hippocampal segmentation (ADNI)"
+  interpretation="At a fraction of the parameter count of comparable 3D segmentation networks."
+  caveat="Reported on the ADNI test split used in the paper — external-cohort validation is the natural next check."
+/>
+
+## What it means
+
+Resource-constrained clinical settings — a lab without a GPU cluster — don't have to choose between segmentation accuracy and being able to run the model at all.

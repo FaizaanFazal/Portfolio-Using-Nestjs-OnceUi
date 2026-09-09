@@ -1,0 +1,7 @@
+{
+  "path": "/blog",
+  "label": "Blog",
+  "icon": "book",
+  "title": "Writing about web development and AI...",
+  "description": "Read what {{name}} has been learning and building in full stack development, AI, and product engineering."
+}

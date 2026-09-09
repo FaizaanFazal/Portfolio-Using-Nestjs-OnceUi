@@ -1,0 +1,73 @@
+.card {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 3;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(7, 10, 18, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--hairline-on-dark);
+  border-radius: 1rem;
+  pointer-events: auto;
+
+  @media (max-width: 768px) {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem;
+    gap: 0.4rem;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.mini {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  width: 4.75rem;
+  padding: 0.5rem 0.4rem 0.4rem;
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  font: inherit;
+  color: var(--ink-on-dark-secondary);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.mini:hover,
+.mini:focus-visible {
+  color: var(--ink-on-dark-primary);
+}
+
+.active {
+  border-color: var(--accent);
+  color: var(--ink-on-dark-primary);
+}
+
+.thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: var(--surface-dark);
+}
+
+.thumb img {
+  object-fit: cover;
+}
+
+.label {
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  white-space: nowrap;
+}

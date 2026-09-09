@@ -1,0 +1,33 @@
+---
+title: "Minimal Clinical Benchmark for Alzheimer's Disease Prediction Using Age and MMSE"
+authors: "Khan, Kwon"
+venue: "Smart Media Journal"
+year: 2026
+status: "published-domestic"
+topic: "benchmarking"
+finding: "A model using only age and MMSE score sets a minimal, honest baseline that any imaging-based classifier should have to beat before claiming added clinical value."
+bibtex: |
+  @article{khan2026benchmark,
+    author  = {Khan, Faizaan Fazal and Kwon},
+    title   = {Minimal Clinical Benchmark for Alzheimer's Disease Prediction Using Age and MMSE},
+    journal = {Smart Media Journal},
+    year    = {2026},
+    note    = {In press}
+  }
+---
+
+## The question
+
+Before crediting an MRI-based deep learning model with predicting Alzheimer's, what would a trivial model using only age and a cognitive test score achieve?
+
+## What I did
+
+Built a minimal baseline classifier using just two easily-collected clinical variables — patient age and MMSE (Mini-Mental State Examination) score — and evaluated its predictive performance on the same task imaging models are usually benchmarked on.
+
+## Result
+
+The minimal baseline performs non-trivially well, which sets a concrete bar: an imaging pipeline needs to clear this simple benchmark by a meaningful margin to justify its added cost and complexity.
+
+## What it means
+
+This is a benchmarking paper, not a competing method — it exists so that future imaging-based AD papers (including my own) have an honest floor to compare against, instead of only comparing against each other.

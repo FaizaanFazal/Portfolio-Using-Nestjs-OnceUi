@@ -1,0 +1,49 @@
+.callout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: var(--bg-raised);
+  border: 1px solid var(--bg-hairline);
+  border-radius: var(--radius-l, 1rem);
+  margin: 1.5rem 0;
+}
+
+.value {
+  font-family: var(--font-code);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-primary);
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ci {
+  font-family: var(--font-code);
+  font-size: var(--text-data);
+  color: var(--ink-secondary);
+}
+
+.label {
+  font-family: var(--font-heading);
+  font-size: var(--text-caption);
+  color: var(--ink-secondary);
+  text-transform: none;
+}
+
+.interpretation {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--ink-primary);
+  margin-top: 0.25rem;
+}
+
+.caveat {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--text-caption);
+  color: var(--ink-tertiary);
+}

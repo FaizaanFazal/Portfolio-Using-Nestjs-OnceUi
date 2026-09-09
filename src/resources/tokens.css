@@ -1,0 +1,96 @@
+/*
+  Design tokens — grounded in neuroimaging, not generic dark-mode.
+  Base: blue-violet-tinted near-black. Accents: FreeSurfer/FSL subcortical
+  segmentation label colors. See plan.md §2.1.
+
+  These are the source of truth for all bespoke components (brain hero,
+  publication topic dots, evidence strip, profile gate, etc). Once UI's own
+  "custom" neutral/brand/accent scheme (defined in custom.css) is a matching
+  ramp generated from this same palette, so shared Once UI chrome (buttons,
+  inputs, cards) reads as part of the same system.
+*/
+
+:root {
+  --bg-void: #070a12;
+  --bg-raised: #0d1220;
+  --bg-hairline: #1a2133;
+
+  --ink-primary: #e8ecf2;
+  --ink-secondary: #93a0b8;
+  --ink-tertiary: #5a6880;
+
+  --label-hippocampus: #dcd814;
+  --label-amygdala: #67ffff;
+  --label-thalamus: #4fb05e;
+  --label-putamen: #ec0db0;
+  --label-caudate: #7abadc;
+  --label-ventricle: #a855c7;
+
+  /* Profile accent — the same tokens, a different pointer per §2.1.
+     Toggled by [data-profile] on <html>, set by ProfileProvider. */
+  --accent: var(--label-hippocampus);
+}
+
+[data-profile="dev"] {
+  --accent: var(--label-caudate);
+}
+
+/* Light theme — every bespoke component (research pages, gate, evidence
+   strip, publication cards, etc.) reads these same variable names, but
+   they only ever had one (dark) definition, so toggling to light theme
+   left near-white text sitting on a now-light page background. Verified
+   contrast (WCAG AA) against both bg-void and bg-raised below. */
+:root[data-theme="light"] {
+  --bg-void: #f3f5f9;
+  --bg-raised: #ffffff;
+  --bg-hairline: #dde1ea;
+
+  --ink-primary: #10131c;
+  --ink-secondary: #4b5468;
+  --ink-tertiary: #5c6478;
+
+  --label-hippocampus: #8f8a00;
+  --label-amygdala: #0a8a8a;
+  --label-thalamus: #2e7d3f;
+  --label-putamen: #a80c8a;
+  --label-caudate: #1f6f96;
+  --label-ventricle: #7a3d96;
+}
+
+/* accent-on is always dark text — every accent color (hippocampus yellow,
+   caudate blue) is bright/light in both themes, so the pill text under it
+   should stay dark rather than following ink-primary's theme flip. */
+:root {
+  --accent-on: #0b0e16;
+
+  /* Fixed light text for content overlaid directly on the brain
+     poster/canvas or the dev hero motif (ResearchHero, Gate panels) —
+     that backdrop is always near-black regardless of site theme, so this
+     text must NOT flip with ink-primary/secondary the way page-flow text
+     correctly does. */
+  --ink-on-dark-primary: #e8ecf2;
+  --ink-on-dark-secondary: #93a0b8;
+
+  /* Fixed dark surface for the same always-dark backdrops (poster scrim,
+     gate screen/panels) — distinct from --bg-void, which is the page's
+     own background and correctly flips with theme. */
+  --surface-dark: #070a12;
+  --surface-dark-raised: #0d1220;
+  --hairline-on-dark: #1a2133;
+  --ink-on-dark-tertiary: #5a6880;
+}
+
+/* Fluid type scale — §2.2 */
+:root {
+  --text-display: clamp(2.75rem, 6vw, 4.5rem);
+  --text-h1: clamp(2rem, 4vw, 3rem);
+  --text-h2: 1.75rem;
+  --text-h3: 1.25rem;
+  --text-body: 1.0625rem;
+  --text-ui: 0.9375rem;
+  --text-caption: 0.8125rem;
+  --text-data: 0.875rem;
+
+  --content-max-width: 1240px;
+  --reading-max-width: 68ch;
+}

@@ -1,0 +1,17 @@
+{
+  "path": "/gallery",
+  "label": "Gallery",
+  "icon": "gallery",
+  "titleTemplate": "Photo gallery – {{name}}",
+  "descriptionTemplate": "A photo collection by {{name}}",
+  "images": [
+    { "src": "/images/projects/naudebourn/blogH.PNG", "alt": "image", "orientation": "horizontal" },
+    { "src": "/images/projects/naudebourn/homepageH.png", "alt": "image", "orientation": "horizontal" },
+    { "src": "/images/projects/naudebourn/homepage.png", "alt": "image", "orientation": "vertical" },
+    { "src": "/images/projects/Quora/dashboard.PNG", "alt": "image", "orientation": "horizontal" },
+    { "src": "/images/projects/rv/homepage.PNG", "alt": "image", "orientation": "horizontal" },
+    { "src": "/images/projects/Quora/extension.PNG", "alt": "image", "orientation": "horizontal" },
+    { "src": "/images/projects/waltier/homepageH.PNG", "alt": "image", "orientation": "horizontal" },
+    { "src": "/images/projects/okanagan/homepage.png", "alt": "image", "orientation": "vertical" }
+  ]
+}

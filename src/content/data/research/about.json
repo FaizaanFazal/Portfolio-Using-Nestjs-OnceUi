@@ -1,0 +1,56 @@
+{
+  "path": "/research/about",
+  "label": "About",
+  "icon": "person",
+  "title": "About — Faizaan Fazal Khan",
+  "description": "AI researcher working on deep learning for Alzheimer's prediction from MRI and PET, based in Gwangju, South Korea.",
+  "bio": "I'm a graduate research assistant at Chosun University, working on deep learning for Alzheimer's disease prediction from structural MRI and PET imaging. My research moves across hippocampal segmentation, genetic and structural biomarkers, and survival modeling of the transition from mild cognitive impairment to Alzheimer's — with a consistent focus on models whose outputs a clinician could actually trust: calibrated uncertainty, explainability, and results that hold up under external validation rather than a single dataset. Before this, I completed a B.S. in Computer Science in Pakistan and worked as a full-stack developer, which is still how I ship the tools around my research — training pipelines, data infrastructure, and the occasional web app.",
+  "education": [
+    {
+      "institution": "Chosun University",
+      "location": "Gwangju, South Korea",
+      "degree": "M.S. Information and Communication Engineering",
+      "timeframe": "Mar 2023 – Feb 2026",
+      "detail": "GPA 4.38/4.5 · Thesis: \"AI-driven diagnosis of Alzheimer's Disease using multimodal MRI and PET neuroimaging\""
+    },
+    {
+      "institution": "Air University",
+      "location": "Islamabad, Pakistan",
+      "degree": "B.S. Computer Science",
+      "timeframe": "Sep 2019 – Jun 2023",
+      "detail": "CGPA 3.22/4.0"
+    }
+  ],
+  "position": {
+    "title": "Graduate Research Assistant",
+    "institution": "Chosun University",
+    "department": "Dept. of Information and Communication Engineering",
+    "timeframe": "Mar 2024 – present"
+  },
+  "award": {
+    "title": "Academic Award for Top Research Activities in the Master's Program",
+    "institution": "Chosun University",
+    "year": "2026"
+  },
+  "skills": {
+    "title": "Technical skills",
+    "items": [
+      "PyTorch",
+      "TensorFlow",
+      "MONAI",
+      "FSL",
+      "SPM",
+      "ANTs",
+      "Nibabel",
+      "SimpleITK",
+      "3D Slicer",
+      "Grad-CAM / LIME / SHAP",
+      "Kaplan-Meier",
+      "Cox regression"
+    ]
+  },
+  "languages": [
+    { "name": "English", "level": "IELTS Academic 7.0 overall (C1)" },
+    { "name": "Urdu", "level": "Native" }
+  ]
+}

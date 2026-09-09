@@ -1,0 +1,53 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1.5rem;
+  background: var(--bg-raised);
+  border: 1px solid var(--bg-hairline);
+  border-radius: var(--radius-l, 1rem);
+  text-decoration: none;
+  transition: border-color 0.15s ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  border-color: var(--ink-tertiary);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.venue {
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  color: var(--ink-primary);
+  line-height: 1.35;
+}
+
+.finding {
+  flex: 1;
+  font-family: var(--font-body);
+  color: var(--ink-secondary);
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+.metric {
+  margin-top: auto;
+  padding-top: 0.25rem;
+  font-family: var(--font-code);
+  font-size: var(--text-data);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}

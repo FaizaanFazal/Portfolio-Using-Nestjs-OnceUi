@@ -5,9 +5,29 @@ import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
+import {
+  routes,
+  display,
+  person,
+  about,
+  blog,
+  work,
+  gallery,
+  researchAbout,
+  researchPublications,
+  researchCV,
+} from "@/resources";
+import { IconName } from "@/resources/icons";
 import { ThemeToggle } from "./ThemeToggle";
+import { CompactProfileSwitch } from "./CompactProfileSwitch";
+import navData from "@/content/data/nav.json";
 import styles from "./Header.module.scss";
+
+// Nav order/active-match-mode is data-driven from nav.json; each entry's
+// label/path/icon is sourced from that page's own content JSON so there is
+// a single source of truth per page (plan.md §7 JSON content refactor).
+const PAGE_MAP = { about, work, blog, gallery, researchAbout, researchPublications, researchCV };
+type PageKey = keyof typeof PAGE_MAP;
 
 type TimeDisplayProps = {
   timeZone: string;
@@ -44,11 +64,13 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const isResearch = pathname.startsWith("/research");
+  const isProfileHome = pathname === "/research" || pathname === "/dev";
 
   return (
     <>
-      <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
+      <Fade s={{ hide: true }} fillWidth position="fixed" height="80" zIndex={9} />
+      <Fade hide s={{ hide: false }} fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
       <Flex
         fitHeight
         position="unset"
@@ -61,7 +83,7 @@ export const Header = () => {
         data-border="rounded"
       >
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Flex hide="s">{person.location}</Flex>}
+          {display.location && <Flex s={{ hide: true }}>{person.location}</Flex>}
         </Flex>
         <Flex fillWidth horizontal="center">
           <Flex
@@ -74,78 +96,27 @@ export const Header = () => {
             zIndex={1}
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
-              {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
-              )}
+              {/* Home always returns to the profile gate, not the current
+                  profile's own landing page — it's a "start over" control. */}
+              <ToggleButton prefixIcon={navData.home.icon as IconName} href="/" selected={pathname === "/"} />
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
-              {routes["/about"] && (
-                <>
+              {(isResearch ? navData.research : navData.dev).map((item) => {
+                const page = PAGE_MAP[item.key as PageKey];
+                if (!page || !routes[page.path as keyof typeof routes]) return null;
+                const selected =
+                  item.matchMode === "startsWith"
+                    ? pathname.startsWith(page.path)
+                    : pathname === page.path;
+                return (
                   <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="person"
-                    href="/about"
-                    label={about.label}
-                    selected={pathname === "/about"}
+                    key={item.key}
+                    prefixIcon={page.icon}
+                    href={page.path}
+                    label={page.label}
+                    selected={selected}
                   />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="person"
-                    href="/about"
-                    selected={pathname === "/about"}
-                  />
-                </>
-              )}
-              {routes["/work"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="grid"
-                    href="/work"
-                    label={work.label}
-                    selected={pathname.startsWith("/work")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="grid"
-                    href="/work"
-                    selected={pathname.startsWith("/work")}
-                  />
-                </>
-              )}
-              {routes["/blog"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="book"
-                    href="/blog"
-                    label={blog.label}
-                    selected={pathname.startsWith("/blog")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="book"
-                    href="/blog"
-                    selected={pathname.startsWith("/blog")}
-                  />
-                </>
-              )}
-              {routes["/gallery"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="gallery"
-                    href="/gallery"
-                    label={gallery.label}
-                    selected={pathname.startsWith("/gallery")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="gallery"
-                    href="/gallery"
-                    selected={pathname.startsWith("/gallery")}
-                  />
-                </>
-              )}
+                );
+              })}
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
@@ -163,7 +134,8 @@ export const Header = () => {
             textVariant="body-default-s"
             gap="20"
           >
-            <Flex hide="s">{display.time && <TimeDisplay timeZone={person.location} />}</Flex>
+            <Flex s={{ hide: true }}>{display.time && <TimeDisplay timeZone={person.location} />}</Flex>
+            {!isProfileHome && <CompactProfileSwitch />}
           </Flex>
         </Flex>
       </Flex>

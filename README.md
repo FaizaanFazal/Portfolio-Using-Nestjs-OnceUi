@@ -44,6 +44,14 @@ Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](http
 
 Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
 
+## Research CV
+
+`public/files/Faizaan_Khan_CV_2026.pdf` is a printed snapshot of `/research/cv`.
+The two are not linked at build time — if you edit `src/app/research/cv/page.tsx`
+or the data in `src/resources/content.research.tsx`, regenerate the PDF from the
+rendered page (e.g. Chrome headless `--print-to-pdf`) so the download matches
+the web version.
+
 ## Features
 
 ### Once UI

@@ -1,0 +1,24 @@
+.strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+  }
+}
+
+.figure {
+  font-family: var(--font-code);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-primary);
+  font-weight: 500;
+}
+
+.label {
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+  margin-top: 0.25rem;
+}

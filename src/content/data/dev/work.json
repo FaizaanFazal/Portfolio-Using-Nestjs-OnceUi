@@ -1,0 +1,7 @@
+{
+  "path": "/dev/work",
+  "label": "Work",
+  "icon": "grid",
+  "titleTemplate": "Projects – {{name}}",
+  "descriptionTemplate": "Full stack web apps, e-commerce sites, and AI projects by {{name}}"
+}

@@ -1,0 +1,67 @@
+.row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.ring {
+  position: relative;
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  pointer-events: auto;
+}
+
+.ring::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  padding: 2px;
+  background: conic-gradient(from 0deg, transparent 0%, transparent 62%, var(--label-ventricle) 80%, transparent 96%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.ring:hover::before,
+.ring:focus-visible::before {
+  opacity: 1;
+  animation: brain-social-spin 0.85s linear infinite;
+}
+
+@keyframes brain-social-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-void);
+  color: var(--ink-primary);
+  border: 1px solid var(--bg-hairline);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.ring:hover .icon,
+.ring:focus-visible .icon {
+  border-color: var(--label-ventricle);
+  color: var(--ink-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring:hover::before,
+  .ring:focus-visible::before {
+    animation: none;
+    opacity: 1;
+  }
+}

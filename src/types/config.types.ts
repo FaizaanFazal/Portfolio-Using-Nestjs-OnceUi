@@ -139,12 +139,18 @@ export type SchemaConfig = {
 };
 
 /**
- * Social links for organization.
+ * Social links for organization. Feeds the JSON-LD Person `sameAs` array —
+ * scholar/orcid matter for the research profile as much as github (see
+ * plan.md §7); leave empty until the real profile URLs exist rather than
+ * fabricating one.
  */
 export type SameAsConfig = {
   threads: string;
   linkedin: string;
   discord: string;
+  github: string;
+  scholar: string;
+  orcid: string;
 };
 
 /**

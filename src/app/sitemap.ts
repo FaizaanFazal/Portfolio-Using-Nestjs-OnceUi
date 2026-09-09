@@ -1,4 +1,4 @@
-import { getPosts } from "@/utils/utils";
+import { getPosts, getPublications } from "@/utils/utils";
 import { baseURL, routes as routesConfig } from "@/resources";
 
 export default async function sitemap() {
@@ -7,9 +7,16 @@ export default async function sitemap() {
     lastModified: post.metadata.publishedAt,
   }));
 
+  // Dev case-study projects live under /dev/work/[slug], not /work/[slug].
   const works = getPosts(["src", "app", "work", "projects"]).map((post) => ({
-    url: `${baseURL}/work/${post.slug}`,
+    url: `${baseURL}/dev/work/${post.slug}`,
     lastModified: post.metadata.publishedAt,
+  }));
+
+  // Research case studies — one page per publication under /research/work/[slug].
+  const caseStudies = getPublications().map((pub) => ({
+    url: `${baseURL}/research/work/${pub.slug}`,
+    lastModified: new Date().toISOString().split("T")[0],
   }));
 
   const activeRoutes = Object.keys(routesConfig).filter((route) => routesConfig[route as keyof typeof routesConfig]);
@@ -19,5 +26,5 @@ export default async function sitemap() {
     lastModified: new Date().toISOString().split("T")[0],
   }));
 
-  return [...routes, ...blogs, ...works];
+  return [...routes, ...blogs, ...works, ...caseStudies];
 }

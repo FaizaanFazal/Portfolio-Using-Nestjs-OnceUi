@@ -1,0 +1,43 @@
+---
+title: "APOE ε4 Allele Dose and Time to Clinical Conversion from MCI to Alzheimer's Disease Dementia: An ADNI Survival Analysis"
+authors: "Khan, Kim, Kim, Kwon"
+venue: "Biomedicines"
+year: 2026
+volume: "14(6):1280"
+impactFactor: 4.3
+doi: "10.3390/biomedicines14061280"
+status: "published-international"
+topic: "survival"
+finding: "Carrying more APOE ε4 alleles shortens the time from mild cognitive impairment to an Alzheimer's diagnosis, in a dose-dependent way."
+bibtex: |
+  @article{khan2026apoe,
+    author  = {Khan, Faizaan Fazal and Kim and Kim and Kwon},
+    title   = {APOE {\ss}4 Allele Dose and Time to Clinical Conversion from MCI to Alzheimer's Disease Dementia: An ADNI Survival Analysis},
+    journal = {Biomedicines},
+    year    = {2026},
+    volume  = {14},
+    number  = {6},
+    pages   = {1280},
+    doi     = {10.3390/biomedicines14061280}
+  }
+---
+
+## The question
+
+Does having more copies of the APOE ε4 gene variant predict *how soon* someone with mild cognitive impairment (MCI) converts to Alzheimer's disease dementia — not just *whether* they do?
+
+## What I did
+
+Survival analysis (Kaplan-Meier + Cox proportional hazards) on ADNI longitudinal cohort data, stratified by APOE ε4 allele dose (0, 1, or 2 copies), tracking time-to-conversion from MCI to AD dementia. The Cox model estimates the hazard of conversion at time $t$ as a baseline hazard scaled by covariate effects:
+
+$$h(t \mid X) = h_0(t) \exp(\beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p)$$
+
+with ε4 allele dose entered as one of the $X_i$ covariates.
+
+## Result
+
+A clear dose-response relationship: each additional ε4 allele copy is associated with a shorter time to conversion.
+
+## What it means
+
+APOE genotype is a practical, already-available stratification variable for enrichment in AD prevention trials — patients with more ε4 copies convert faster and could be prioritized for earlier intervention.

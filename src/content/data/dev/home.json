@@ -1,0 +1,32 @@
+{
+  "path": "/dev",
+  "image": "/images/og/home.jpg",
+  "label": "Home",
+  "titleTemplate": "{{name}}'s Portfolio",
+  "descriptionTemplate": "Portfolio website showcasing my work as a {{role}}",
+  "headline": "Building bridges between design and code",
+  "featured": {
+    "display": true,
+    "title": "Recent project: Naudebourn",
+    "href": "/dev/work/naudebourn"
+  },
+  "sublineTemplate": "I'm Faizaan, a software developer at {{company}}, where I craft intuitive user experiences. After hours, I build my own projects.",
+  "howIWork": {
+    "display": true,
+    "title": "How I work",
+    "items": [
+      {
+        "title": "Team leadership",
+        "description": "Leads Agile sprints as a software team lead, from planning to delivery."
+      },
+      {
+        "title": "Ships with CI/CD",
+        "description": "Deploys on Vercel with CI/CD pipelines for fast, reliable releases."
+      },
+      {
+        "title": "Tests what ships",
+        "description": "Writes tests with Jest and React Testing Library before calling something done."
+      }
+    ]
+  }
+}

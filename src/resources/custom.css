@@ -2,57 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  /*
-  /* Example setup for custom colors */
-  /* Generate at: https://once-ui.com/customize */
-  /*
-  --scheme-brand-100: #08002f;
-  --scheme-brand-200:  #04025c;
-  --scheme-brand-300:  #1f398e;
-  --scheme-brand-400:  #3856ae;
-  --scheme-brand-500:  #5071cc;
-  --scheme-brand-600:  #6f94f1;
-  --scheme-brand-700:  #8db3ff;
-  --scheme-brand-800:  #b2dbff;
-  --scheme-brand-900:  #bfe8ff;
-  --scheme-brand-1000: #ccf6ff;
-  --scheme-brand-1100: #d2fcff;
-  --scheme-brand-1200: #d2fcff;
-  --scheme-brand-600-10: rgba(111,148,241,0.1);
-  --scheme-brand-600-30: rgba(111,148,241,0.3);
-  --scheme-brand-600-50: rgba(111,148,241,0.5);
+/*
+  Once UI "custom" neutral/brand/accent scheme, generated from the
+  neuroimaging palette in tokens.css so shared Once UI chrome (buttons,
+  inputs, borders) reads as part of the same system. See plan.md §2.1/§7.
+  neutral = blue-violet near-black ramp · brand = hippocampus yellow ·
+  accent = caudate pale blue.
 
-  --scheme-accent-100:  #030b10;
-  --scheme-accent-200:  #0d181d;
-  --scheme-accent-300:  #364248;
-  --scheme-accent-400:  #505d64;
-  --scheme-accent-500:  #69777e;
-  --scheme-accent-600:  #8a989f;
-  --scheme-accent-700:  #a8b7bf;
-  --scheme-accent-800:  #c8d7df;
-  --scheme-accent-900:  #d5e4ec;
-  --scheme-accent-1000: #e2f1f9;
-  --scheme-accent-1100: #e9f8ff;
-  --scheme-accent-1200: #efffff;
-  --scheme-accent-600-10: rgba(138,152,159,0.1);
-  --scheme-accent-600-30: rgba(138,152,159,0.3);
-  --scheme-accent-600-50: rgba(138,152,159,0.5);
+  Steps are generated with a gamma curve (t^0.8, not linear) so the
+  500-900 range — what dark theme's on-background-weak/medium text tokens
+  draw from — clears WCAG AA against --bg-void. A first pass used a linear
+  ramp and on-background-weak (step 700) measured 4.41:1 against void,
+  just under the 4.5:1 body-text threshold (verified by sampling rendered
+  screenshots, not just computed swatches). This curve puts it at 6.12:1.
+*/
+:root {
+  --scheme-neutral-100: #0e0e11;
+  --scheme-neutral-200: #2a2d38;
+  --scheme-neutral-300: #3b4259;
+  --scheme-neutral-400: #485379;
+  --scheme-neutral-500: #556496;
+  --scheme-neutral-600: #6978aa;
+  --scheme-neutral-700: #818eb8;
+  --scheme-neutral-800: #99a3c6;
+  --scheme-neutral-900: #b1b9d1;
+  --scheme-neutral-1000: #cacedc;
+  --scheme-neutral-1100: #e0e2e8;
+  --scheme-neutral-1200: #f4f4f6;
+  --scheme-neutral-600-10: rgba(105, 120, 170, 0.1);
+  --scheme-neutral-600-30: rgba(105, 120, 170, 0.3);
+  --scheme-neutral-600-50: rgba(105, 120, 170, 0.5);
 
-  --scheme-neutral-100:  #020b10;
-  --scheme-neutral-200:  #0b181d;
-  --scheme-neutral-300:  #344248;
-  --scheme-neutral-400:  #4f5d64;
-  --scheme-neutral-500:  #68777e;
-  --scheme-neutral-600:  #89989f;
-  --scheme-neutral-700:  #a7b7be;
-  --scheme-neutral-800:  #c7d7df;
-  --scheme-neutral-900:  #d4e4ec;
-  --scheme-neutral-1000: #e1f2f9;
-  --scheme-neutral-1100: #e7f8ff;
-  --scheme-neutral-1200: #eeffff;
-  --scheme-neutral-600-10: rgba(137,152,159,0.1);
-  --scheme-neutral-600-30: rgba(137,152,159,0.3);
-  --scheme-neutral-600-50: rgba(137,152,159,0.5);
-  /*
-}*/
+  --scheme-brand-100: #181810;
+  --scheme-brand-200: #4a4921;
+  --scheme-brand-300: #7a7822;
+  --scheme-brand-400: #afac19;
+  --scheme-brand-500: #ddd914;
+  --scheme-brand-600: #ece82c;
+  --scheme-brand-700: #efec4e;
+  --scheme-brand-800: #f2ef6f;
+  --scheme-brand-900: #f0ee95;
+  --scheme-brand-1000: #ecebbb;
+  --scheme-brand-1100: #efeeda;
+  --scheme-brand-1200: #f7f7f3;
+  --scheme-brand-600-10: rgba(236, 232, 44, 0.1);
+  --scheme-brand-600-30: rgba(236, 232, 44, 0.3);
+  --scheme-brand-600-50: rgba(236, 232, 44, 0.5);
+
+  --scheme-accent-100: #111517;
+  --scheme-accent-200: #273a44;
+  --scheme-accent-300: #2f576d;
+  --scheme-accent-400: #2f7498;
+  --scheme-accent-500: #328ebe;
+  --scheme-accent-600: #49a0cf;
+  --scheme-accent-700: #66b0d7;
+  --scheme-accent-800: #83bfde;
+  --scheme-accent-900: #a2cce2;
+  --scheme-accent-1000: #c2d9e5;
+  --scheme-accent-1100: #dde7ec;
+  --scheme-accent-1200: #f3f5f6;
+  --scheme-accent-600-10: rgba(73, 160, 207, 0.1);
+  --scheme-accent-600-30: rgba(73, 160, 207, 0.3);
+  --scheme-accent-600-50: rgba(73, 160, 207, 0.5);
+}
+
+/* Dev profile: Once UI's own "brand" ramp (what SmartLink, Button, active
+   nav states etc. actually render with) shifts from hippocampus to caudate,
+   so the whole dev half of the site — not just bespoke components — reads
+   with the pale-blue accent (plan.md §2.1: "the accent shifts... same
+   tokens, different pointer"). Values match the accent ramp above. */
+[data-profile="dev"] {
+  --scheme-brand-100: #111517;
+  --scheme-brand-200: #273a44;
+  --scheme-brand-300: #2f576d;
+  --scheme-brand-400: #2f7498;
+  --scheme-brand-500: #328ebe;
+  --scheme-brand-600: #49a0cf;
+  --scheme-brand-700: #66b0d7;
+  --scheme-brand-800: #83bfde;
+  --scheme-brand-900: #a2cce2;
+  --scheme-brand-1000: #c2d9e5;
+  --scheme-brand-1100: #dde7ec;
+  --scheme-brand-1200: #f3f5f6;
+  --scheme-brand-600-10: rgba(73, 160, 207, 0.1);
+  --scheme-brand-600-30: rgba(73, 160, 207, 0.3);
+  --scheme-brand-600-50: rgba(73, 160, 207, 0.5);
+}
+
+/* Page background/body text pinned to the exact neuroimaging tokens in
+   both themes (housekeeping §7: fix poor text contrast) — otherwise the
+   overall page background comes from Once UI's own ramp-derived value
+   while bespoke components (research pages, gate, cards) use --bg-void
+   directly, and the two can drift apart by theme. */
+[data-theme="dark"],
+[data-theme="light"] {
+  --page-background: var(--bg-void);
+  --neutral-on-background-strong: var(--ink-primary);
+}

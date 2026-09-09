@@ -1,0 +1,36 @@
+---
+title: "Comparison and Analysis of CNN Models to Address Skewed Data Issues in Alzheimer's Diagnosis"
+authors: "Khan, Kwon"
+venue: "Smart Media Journal"
+year: 2024
+volume: "13(10):28-34"
+status: "published-domestic"
+topic: "classification"
+finding: "Class imbalance — far fewer AD scans than healthy controls in most datasets — quietly inflates reported accuracy; comparing CNN architectures under imbalance-aware training tells a different story than raw accuracy does."
+bibtex: |
+  @article{khan2024skewed,
+    author  = {Khan, Faizaan Fazal and Kwon},
+    title   = {Comparison and Analysis of CNN Models to Address Skewed Data Issues in Alzheimer's Diagnosis},
+    journal = {Smart Media Journal},
+    year    = {2024},
+    volume  = {13},
+    number  = {10},
+    pages   = {28--34}
+  }
+---
+
+## The question
+
+When a dataset has far more healthy scans than Alzheimer's-positive ones, how much of a reported classifier's accuracy is actually real signal versus an artifact of the imbalance?
+
+## What I did
+
+Compared several CNN architectures for Alzheimer's diagnosis under class-imbalance-aware training strategies, evaluating them on metrics that don't get inflated by a skewed class distribution.
+
+## Result
+
+Rankings between architectures shifted once imbalance was properly accounted for — a model that looked best on raw accuracy wasn't always the best on balanced metrics.
+
+## What it means
+
+Any Alzheimer's classification result should be read alongside its class distribution and evaluation metric, not accuracy alone — this is a common, avoidable way results get overstated in the literature.

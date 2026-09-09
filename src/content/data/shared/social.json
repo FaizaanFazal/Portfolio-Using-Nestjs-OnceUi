@@ -1,0 +1,6 @@
+[
+  { "name": "GitHub", "icon": "github", "link": "https://github.com/FaizaanFazal" },
+  { "name": "LinkedIn", "icon": "linkedin", "link": "https://www.linkedin.com/in/faizaan-fazal-a02246242/" },
+  { "name": "Threads", "icon": "threads", "link": "" },
+  { "name": "Email", "icon": "email", "link": "mailto:{{email}}" }
+]

@@ -1,0 +1,39 @@
+---
+title: "Dataset-Aware Preprocessing for Hippocampal Segmentation: Insights from Ablation and Transfer Learning"
+authors: "Khan, Kim, Kim, Kwon"
+venue: "Mathematics"
+year: 2025
+volume: "13(20):3309"
+impactFactor: 2.3
+doi: "10.3390/math13203309"
+status: "published-international"
+topic: "segmentation"
+finding: "Which preprocessing steps actually help hippocampal segmentation depends on the dataset — an ablation study across datasets found no single preprocessing recipe wins everywhere."
+bibtex: |
+  @article{khan2025datasetaware,
+    author  = {Khan, Faizaan Fazal and Kim and Kim and Kwon},
+    title   = {Dataset-Aware Preprocessing for Hippocampal Segmentation: Insights from Ablation and Transfer Learning},
+    journal = {Mathematics},
+    year    = {2025},
+    volume  = {13},
+    number  = {20},
+    pages   = {3309},
+    doi     = {10.3390/math13203309}
+  }
+---
+
+## The question
+
+Do the preprocessing choices that improve hippocampal segmentation on one MRI dataset transfer to another, or does each dataset need its own recipe?
+
+## What I did
+
+Ran a systematic ablation study over common preprocessing steps (normalization, contrast enhancement, resampling) across multiple hippocampal segmentation datasets, then tested transfer learning between them.
+
+## Result
+
+No single preprocessing pipeline was universally best — the optimal choice was dataset-dependent, and transfer learning performance degraded when preprocessing assumptions didn't match between source and target datasets.
+
+## What it means
+
+Papers reporting segmentation results should treat preprocessing as a variable worth ablating, not a fixed pipeline copied from prior work — what works on ADNI won't automatically work on a different acquisition protocol.

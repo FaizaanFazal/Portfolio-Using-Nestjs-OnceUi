@@ -1,0 +1,42 @@
+// Auto (not none): this layer is what receives the drag-to-rotate/hover
+// gestures now. Real content stacked in front of it (text, buttons — see
+// ResearchHero.module.scss/.content) keeps its own pointer-events and wins
+// the hit-test wherever it actually covers this box, so nothing clickable
+// gets shadowed by it.
+.host {
+  position: absolute;
+  inset: 0;
+}
+
+.canvas {
+  opacity: 0;
+  transition: opacity 900ms ease;
+}
+
+.visible {
+  opacity: 1;
+}
+
+// Purely visual — pointer-events: none so it never shadows the drag/hover
+// surface underneath while it's fading out.
+.loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 400ms ease;
+}
+
+.loadingDone {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .canvas,
+  .loading {
+    transition: none;
+  }
+}

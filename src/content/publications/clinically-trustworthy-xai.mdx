@@ -1,0 +1,38 @@
+---
+title: "Toward Clinically Trustworthy Alzheimer's Diagnosis: Combining EfficientNetV2B0 and XAI Techniques for MRI Analysis"
+authors: "Khan, Kwon"
+venue: "Smart Media Journal"
+year: 2025
+volume: "14(6):60-66"
+doi: "10.30693/SMJ.2025.14.6.60"
+status: "published-domestic"
+topic: "explainability"
+finding: "Pairing an EfficientNetV2B0 classifier with Grad-CAM/SHAP explanations lets clinicians see which brain regions drove an Alzheimer's prediction, not just the prediction itself."
+bibtex: |
+  @article{khan2025xai,
+    author  = {Khan, Faizaan Fazal and Kwon},
+    title   = {Toward Clinically Trustworthy Alzheimer's Diagnosis: Combining EfficientNetV2B0 and XAI Techniques for MRI Analysis},
+    journal = {Smart Media Journal},
+    year    = {2025},
+    volume  = {14},
+    number  = {6},
+    pages   = {60--66},
+    doi     = {10.30693/SMJ.2025.14.6.60}
+  }
+---
+
+## The question
+
+A classifier can flag a scan as "likely Alzheimer's" — but will a clinician trust it without knowing why?
+
+## What I did
+
+Combined an EfficientNetV2B0 classifier for MRI-based Alzheimer's diagnosis with explainability techniques (Grad-CAM, LIME, SHAP) to surface which regions of the scan the model weighted most heavily.
+
+## Result
+
+The model's attention consistently localized to regions already associated with AD pathology (hippocampus, medial temporal lobe), giving a visual, region-level check on whether the classifier is reasoning about the right anatomy.
+
+## What it means
+
+Explainability isn't a compliance checkbox — it's how a radiologist decides whether to trust a specific prediction, on a specific scan, not just the model's aggregate accuracy.
